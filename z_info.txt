@@ -1,0 +1,35 @@
+** package.json **
+    Arquivo onde será cadastrado as opções de scripts a serem executados.
+
+    -- "cy:open": "cypress open", -- executa os testes em modo interativo, exibindo a 
+    tela
+
+    -- "test": "cypress run" -- executa os testes em modo headless, retornando apenas o 
+    resultado no terminal e criando uma pasta "video" com a gravação dos testes e caso 
+    tenha algum teste com erro, gera uma pasta "screenshoot" com imagem do erro.
+
+    -- "cy:test": "cypress run --spec cypress/integration/arquivo.spec.js" -- é possível
+    criar um script especifico para apenas um arquivo de automação.
+        E também pode definir um script para um tamanho de tela específico, como a de um
+        smartphone: "test": "cypress run --config viewportWidth=410 viewportHeight=860"
+
+** commands.js **
+    Nesse arquivo é possível criar comandos customizáveis para serem chamados na 
+    pasta principal em casos de comandos repetitivos.
+        Cypress.Commands.add('*nome*',function(){
+            cy.get('#firstName').type('Sara')
+            //os dados que serão imputados
+        })
+
+** index.js **
+    Nesse arquivo será infromado os imports necessários caso exista pastas com 
+    comandos customizáveis poderem ser chamados no arquivo principal
+
+** cypress.json **
+    Define as configurações do ambiente de teste, como altura e largura da tela.
+
+** ci.yml **
+    Criado um arquivo de "Continuous Integration" onde será configurado um 
+    pipeline de integração contínua. Essa pipeline serve para que sempre que seja 
+    realizado uma alteração no repositório, ela é executada para garantir que as 
+    atualizações funcionam.

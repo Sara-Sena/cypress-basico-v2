@@ -1,0 +1,12 @@
+name: End-to-end tests 🧪
+on: [push] #informa que será executado quando houver um git.push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout #GitHub Actions irá baixar o código do projeto em seu Workspace
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
